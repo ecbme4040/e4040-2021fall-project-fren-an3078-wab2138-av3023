@@ -15,6 +15,7 @@ from tensorflow import keras
 # and multiplicity of resnet blocks (3)
 # - custom_input: input shape of model 
 # - n_classes: number of classes
+# - SE: Add squeeze and excitation layers if SE!=0 with ratio = SE (https://arxiv.org/abs/1709.01507)
 # - model_name: model name
 # - debug: prints layers shape if true
 #
@@ -26,7 +27,7 @@ from tensorflow import keras
 
 
 
-def custom_resnet(res_model=[],custom_input=(224,224,3),n_classes=1000,model_name='custom_resnet',debug=False):
+def custom_resnet(res_model=[],custom_input=(224,224,3),n_classes=1000,SE=0,model_name='custom_resnet',debug=False):
 
     # default model is resnet50
     if len(res_model)==0:
@@ -144,23 +145,23 @@ def custom_resnet_summary(res_model=[]):
     
 # builds resnet18
 # https://pytorch.org/assets/images/resnet.png for more information
-def custom_resnet18(input_shape=(224,224,3),n_classes=1000,name='custom_resnet18',debug=False):
-    return  custom_resnet([[[3,3],[64,64],2],[[3,3],[128,128],2],[[3,3],[256,256],2],[[3,3],[512,512],2]],input_shape,n_classes,name,debug)
+def custom_resnet18(input_shape=(224,224,3),n_classes=1000,SE=False,name='custom_resnet18',debug=False):
+    return  custom_resnet([[[3,3],[64,64],2],[[3,3],[128,128],2],[[3,3],[256,256],2],[[3,3],[512,512],2]],input_shape,n_classes,SE,name,debug)
 
 # builds resnet34
 # https://pytorch.org/assets/images/resnet.png for more information
-def custom_resnet34(input_shape=(224,224,3),n_classes=1000,name='custom_resnet34',debug=False):
-    return  custom_resnet([[[3,3],[64,64],3],[[3,3],[128,128],4],[[3,3],[256,256],6],[[3,3],[512,512],3]],input_shape,n_classes,name,debug)
+def custom_resnet34(input_shape=(224,224,3),n_classes=1000,SE=False,name='custom_resnet34',debug=False):
+    return  custom_resnet([[[3,3],[64,64],3],[[3,3],[128,128],4],[[3,3],[256,256],6],[[3,3],[512,512],3]],input_shape,n_classes,SE,name,debug)
 
 def custom_resnet50(input_shape=(224,224,3),n_classes=1000,name='custom_resnet50',debug=False):
     return  custom_resnet([],input_shape,n_classes,name,False)
 
 # builds resnet101
 # https://pytorch.org/assets/images/resnet.png for more information
-def custom_resnet101(input_shape=(224,224,3),n_classes=1000,name='custom_resnet101',debug=False):
-    return  custom_resnet([[1,3,1],[64,64,256],3],[[1,3,1],[128,128,512],4],[[1,3,1],[256,256,1024],23],[[1,3,1],[512,512,2048],3],input_shape,n_classes,name,debug)
+def custom_resnet101(input_shape=(224,224,3),n_classes=1000,SE=False,name='custom_resnet101',debug=False):
+    return  custom_resnet([[1,3,1],[64,64,256],3],[[1,3,1],[128,128,512],4],[[1,3,1],[256,256,1024],23],[[1,3,1],[512,512,2048],3],SE,input_shape,n_classes,name,debug)
 
 # builds resnet152
 # https://pytorch.org/assets/images/resnet.png for more information
-def custom_resnet152(input_shape=(224,224,3),n_classes=1000,name='custom_resnet152',debug=False):
-    return  custom_resnet([[1,3,1],[64,64,256],3],[[1,3,1],[128,128,512],4],[[1,3,1],[256,256,1024],36],[[1,3,1],[512,512,2048],3],input_shape,n_classes,name,debug)
+def custom_resnet152(input_shape=(224,224,3),n_classes=1000,SE=False,name='custom_resnet152',debug=False):
+    return  custom_resnet([[1,3,1],[64,64,256],3],[[1,3,1],[128,128,512],4],[[1,3,1],[256,256,1024],36],[[1,3,1],[512,512,2048],3],SE,input_shape,n_classes,name,debug)
