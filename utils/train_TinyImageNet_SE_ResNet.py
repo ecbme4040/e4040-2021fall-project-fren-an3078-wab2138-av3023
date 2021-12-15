@@ -18,7 +18,7 @@ def tinyImageNet_resnet_train(model,path,X_train,y_train,X_val,y_val,data_aug=Fa
          train_datagen = ImageDataGenerator()
     # Change learning rate
     def change_learning_rate(epoch, lr):
-        if epoch % 14 == steps and epoch:
+        if epoch % steps == 0 and epoch:
             print('new learning rate: ',lr)
             return 0.1 *lr
         return lr
