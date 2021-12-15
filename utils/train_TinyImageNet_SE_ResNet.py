@@ -6,6 +6,7 @@ from tensorflow.keras.callbacks import LearningRateScheduler,ModelCheckpoint
 import matplotlib.pyplot as plt
 
 def tinyImageNet_resnet_train(model,path,X_train,y_train,X_val,y_val,data_aug=False,learning_rate=0.6,steps=14,epochs=45,batch_size=128,es_patience=8):
+    STEPS=steps
     if data_aug:
         train_datagen = ImageDataGenerator(
         horizontal_flip=True,
@@ -18,7 +19,8 @@ def tinyImageNet_resnet_train(model,path,X_train,y_train,X_val,y_val,data_aug=Fa
          train_datagen = ImageDataGenerator()
     # Change learning rate
     def change_learning_rate(epoch, lr):
-        if epoch % steps == 0 and epoch:
+        print('steps before lr change: ',STEPS - (epoch % STEPS))
+        if epoch % STEPS == 0 and epoch:
             print('new learning rate: ',lr)
             return 0.1 *lr
         return lr
