@@ -5,7 +5,9 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import LearningRateScheduler,ModelCheckpoint
 import matplotlib.pyplot as plt
 
-def tinyImageNet_resnet_train(model,path,X_train,y_train,X_val,y_val,data_aug=False,learning_rate=0.6,steps=14,epochs=45,batch_size=128,es_patience=8):
+
+def tinyImageNet_resnet_train(model,path,X_train,y_train,X_val,y_val,data_aug=False,learning_rate=0.6,steps=20,epochs=60,batch_size=128,es_patience=15):
+
     STEPS=steps
     if data_aug:
         train_datagen = ImageDataGenerator(
