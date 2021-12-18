@@ -7,6 +7,7 @@ This files defines functions to build custom ResNeXt models.
 
 from tensorflow.keras.layers import MaxPool2D, GlobalAvgPool2D,Add, ReLU, Dense,Input, Conv2D, BatchNormalization
 from tensorflow.keras import Model
+import tensorflow as tf
 
 # stages of convolution go from 1 to 5 as in https://arxiv.org/pdf/1611.05431.pdf
 # grouped convolutions are only present in stages 2 to 5
@@ -97,9 +98,9 @@ def custom_ResNeXt_summary(res_model=[]):
     model.summary()
 
 # builds ResNeXt50
-def custom_ResNeXt50(input_shape=(224,224,3),n_classes=1000,cardinality=32,name='custom_ResNext50'):
-    return custom_ResNeXt([],input_shape,n_classes,name)
+def custom_ResNeXt50(input_shape=(224,224,3),n_classes=1000,cardinality=32,model_name='custom_ResNext50'):
+    return custom_ResNeXt([],input_shape,n_classes,cardinality=32,model_name=model_name)
 
 # builds ResNeXt101
-def custom_ResNeXt101(input_shape=(224,224,3),n_classes=1000,cardinality=32,name='custom_ResNext101'):
-    return  custom_ResNeXt([[1,3,1],[64,64,256],3],[[1,3,1],[128,128,512],4],[[1,3,1],[256,256,1024],23],[[1,3,1],[512,512,2048],3],input_shape,n_classes,name,debug)
+def custom_ResNeXt101(input_shape=(224,224,3),n_classes=1000,cardinality=32,model_name='custom_ResNext101'):
+    return  custom_ResNeXt([[1,3,1],[64,64,256],3],[[1,3,1],[128,128,512],4],[[1,3,1],[256,256,1024],23],[[1,3,1],[512,512,2048],3],input_shape,n_classes,cardinality=32,model_name=model_name)
