@@ -16,9 +16,10 @@ def custom_ResNeXt(ResNeXt_model=[],custom_input=(224,224,3),n_classes=1000,card
 
     # default model is resnet50
     if len(ResNeXt_model)==0:
-        model_name='custom_ResNeXt50'
+        model_name='custom_ResNeXt50_32x4d'
+        # first array of ResNeXt defines the parameters for conv1 and maxpool in conv2
+        ResNeXt_model= [[64,7,2],[3,2]], [[1,3,1],[128,128,256],3], [[1,3,1],[256,256,512],4], [[1,3,1],[512,512,1024],6], [[1,3,1],[1024,1024,2048],3]
         
-        ResNeXt_model=[[1,3,1],[128,128,256],3],[[1,3,1],[256,256,512],4],[[1,3,1],[512,512,1024],6],[[1,3,1],[1024,1024,2048],3]
 
     #layers with 2dconv, batch norm, and relu activation
     def conv_and_activation_layer(x, filters, kernel_size, strides=1,name=''):
@@ -47,13 +48,16 @@ def custom_ResNeXt(ResNeXt_model=[],custom_input=(224,224,3),n_classes=1000,card
         return x
 
     input = Input(custom_input)
+    
+    # get parameters for conv1 and maxpool of conv2
+    conv_pool_params = ResNeXt_model[0]
 
-    x = conv_and_activation_layer(input, filters=64, kernel_size=7, strides=2, name = 'conv1')
-    x = MaxPool2D(pool_size = 3, strides = 2, padding = 'same',name='conv2_pool')(x)
+    x = conv_and_activation_layer(input, filters=conv_pool_params[0][0], kernel_size=conv_pool_params[0][1], strides=conv_pool_params[0][2], name = 'conv1')
+    x = MaxPool2D(pool_size = conv_pool_params[1][0], strides = conv_pool_params[1][1], padding = 'same',name='conv2_pool')(x)
 
     stage_num = 2
 
-    for stage in ResNeXt_model:
+    for stage in ResNeXt_model[1:]:
 
         for indexblock in range(stage[-1]):
             
@@ -98,9 +102,12 @@ def custom_ResNeXt_summary(res_model=[]):
     model.summary()
 
 # builds ResNeXt50
-def custom_ResNeXt50(input_shape=(224,224,3),n_classes=1000,cardinality=32,model_name='custom_ResNext50'):
+# https://arxiv.org/pdf/1611.05431.pdf
+def custom_ResNeXt50(input_shape=(224,224,3),n_classes=1000,cardinality=32,model_name='custom_ResNext50_32x4d'):
     return custom_ResNeXt([],input_shape,n_classes,cardinality=32,model_name=model_name)
 
-# builds ResNeXt101
-def custom_ResNeXt101(input_shape=(224,224,3),n_classes=1000,cardinality=32,model_name='custom_ResNext101'):
-    return  custom_ResNeXt([[1,3,1],[64,64,256],3],[[1,3,1],[128,128,512],4],[[1,3,1],[256,256,1024],23],[[1,3,1],[512,512,2048],3],input_shape,n_classes,cardinality=32,model_name=model_name)
+# builds ResNeXt29
+# https://arxiv.org/pdf/1611.05431.pdf
+def custom_ResNeXt29(input_shape=(224,224,3),n_classes=1000,cardinality=8,model_name='custom_ResNext29_8x64d'):
+    return  custom_ResNeXt([[[64,3,2],[3,2]], [[1,3,1],[512,512,256],3], [[1,3,1],[1024,1024,512],3], [[1,3,1],[2048,2048,1024],3]],
+                           input_shape,n_classes,cardinality=8,model_name=model_name)
