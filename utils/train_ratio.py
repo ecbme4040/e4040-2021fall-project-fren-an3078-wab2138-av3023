@@ -5,12 +5,11 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import LearningRateScheduler,ModelCheckpoint,ReduceLROnPlateau
 import matplotlib.pyplot as plt
 import tensorflow as tf
-if not os.path.exists('./models/ratio'):
-    os.makedirs('./models/ratio')
-if not os.path.exists('./full_models/ratio'):
-    os.makedirs('./full_models/ratio')
+from utils.evaluate_model import score
 
-def train_ratio(ratio,X_train,y_train,X_val,y_val):
+from utils.train_CIFAR_ResNet import plot_model
+
+def train_ratio(ratio,X_train,y_train,X_val,y_val,X_test, y_test):
     SE_resnet=SE_custom_resnet(res_model=[[[3,3],[64,64],4],[[3,3],[128,128],6],[[1,3,1],[256,256,1024],8]],custom_input=(32,32,3),n_classes=10,ratio=ratio,model_name='custom_resnet46_ratio1',debug=False)
     SE_resnet.summary()
 
