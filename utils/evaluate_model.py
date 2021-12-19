@@ -14,7 +14,7 @@ import numpy as np
 #######################
 def top_n_acc(pred, targets,n=1):
         acc=np.mean(tf.keras.metrics.top_k_categorical_accuracy(targets, pred, k=n).numpy())
-        print("top",n,'accuracy:',acc,sep=' ')
+        print("top",n,'accuracy:',acc*100,sep=' ')
         return acc
     
 

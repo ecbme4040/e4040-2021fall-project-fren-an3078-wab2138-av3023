@@ -138,8 +138,8 @@ def custom_resnet(res_model=[],custom_input=(224,224,3),n_classes=1000,model_nam
     return custom_model
 
 # prints the resnet layer descriptions
-def custom_resnet_summary(res_model=[]):
-    model=custom_resnet(res_model)
+def custom_resnet_summary(res_model=[],input_shape=(224,224,3),n_classes=1000,name='custom_resnet',debug=False):
+    model=custom_resnet(res_model,input_shape,n_classes,name,debug)
     model.summary()
     
 # builds resnet18

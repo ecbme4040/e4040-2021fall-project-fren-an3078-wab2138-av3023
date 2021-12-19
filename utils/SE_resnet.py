@@ -106,10 +106,24 @@ def add_SE(model, l,ratio,modelname=''):
 # Output: Returns the SE version of the specified custom resnet
 ############################################################## 
 
-def SE_custom_resnet(add_after_layers=[],res_model=[],custom_input=(224,224,3),n_classes=1000,ratio=16,model_name='custom_resnet',debug=False):
+
+# enter any layer where we want to insert SE blocks
+def SE_custom_ablation(add_after_layers=[],res_model=[],custom_input=(224,224,3),n_classes=1000,ratio=16,model_name='custom_resnet',debug=False):
     
     base_resnet = custom_resnet(res_model,custom_input,n_classes,model_name,debug)
     return add_SE(base_resnet, add_after_layers ,ratio,modelname=name)
+
+
+def SE_custom_resnet(res_model=[],custom_input=(224,224,3),n_classes=1000,ratio=16,model_name='custom_resnet',debug=False):
+    
+    base_resnet = custom_resnet(res_model,custom_input,n_classes,model_name,debug)
+    
+    l=[l.name for l in base_resnet.layers]
+    list_se=[]
+    for i,name in enumerate(l):
+        if(i+1<len(l) and 'add' in l[i+1]):
+            list_se.append(name)
+    return add_SE(base_resnet, list_se ,ratio,modelname=name)
 
 # the last 5 functions return the SE versions of the resnet18-34-50-101-152 models
 def SE_resnet18(input_shape=(224,224,3),n_classes=1000,ratio=16,name='SE_resnet18',debug=False):
