@@ -17,6 +17,8 @@ full_models/
 │   │   └── inception_v3_custom_cifar10.ckpt.index
 │   ├── resnet_best.h5
 │   ├── SE-inception weights/
+│   │   ├── se_inception_v3_custom_cifar10.ckpt.data-00000-of-00001
+│   │   └── se_inception_v3_custom_cifar10.ckpt.index
 │   └── SE_resnet_best.h5
 ├── cifar100/
 │   ├── resnet_best.h5
