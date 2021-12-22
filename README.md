@@ -3,8 +3,9 @@ This report summarizes the findings of the original Squeeze-and-Excitation Netwo
 
 [1] J. Hu, L. Shen, S. Albanie, G. Sun, and E. Wu, Squeeze-and-Excitation Networks. 2019.
 ## Download the models
-Models are ordered by test category folders
+Models are ordered by test category folders (link below) 
 ```
+Drive directory tree
 full_models/
 ├── ablation/
 │   ├── SE_identity.h5
