@@ -1,3 +1,4 @@
+# gives consistent label order when switching environments or os.
 def labels_order():
     dic={'n03617480': 0,
      'n09332890': 1,
