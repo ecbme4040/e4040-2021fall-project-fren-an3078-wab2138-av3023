@@ -58,7 +58,7 @@ full_models/
 ### 2. CIFAR 100
 - **ResNet with CIFAR100.ipynb** Shows the training process and results of ResNet et SE-Resnet models on CIFAR-100
 - **ResNeXt with CIFAR100.ipynb** Shows the training process and results of ResNeXt et SE-ResneXt models on CIFAR-100
-- - **InceptionV3 with CIFAR10-100.ipynb** Shows the training process and results of InceptionV3 et SE-InceptionV3 models on CIFAR-100
+- **InceptionV3 with CIFAR10-100.ipynb** Shows the training process and results of InceptionV3 et SE-InceptionV3 models on CIFAR-100
 ### 3. Tiny ImageNet
 - **ResNet18 with tinyImageNet.ipynb** Shows the training process and results of ResNet-18 et SE-Resnet-18 models on Tiny ImageNet with and without data augmentation
 - **ResNet34 with tinyImageNet.ipynb** Shows the training process and results of ResNet-34 et SE-Resnet-34 models on Tiny ImageNet with and without data augmentation
