@@ -1,6 +1,7 @@
 # Squeeze-and-Excitation Networks
 This report summarizes the findings of the original Squeeze-and-Excitation Networks paper and shows a reproduction of the results with Tensorflow [1]. Convolutional neural networks are widely used for image classification in models such as Resnet models. This report investigates the effectiveness of Squeeze-and-Excitation blocks whose aim is to strengthen the inter-channel relationship by rescaling them. The original paper showed that it consistently increased the classification accuracy with various data sets such as Image Net. This paper is going to show how we were able to increase the accuracy of CNN models with the Squeeze-and-Excitation method. Because of technical barriers, slightly different models and data sets were used. We also tried to analyze the effect of different parameters of  Squeeze-and-Excitation blocks on the models, matching the paper’s findings with varying success.
 
+[1] J. Hu, L. Shen, S. Albanie, G. Sun, and E. Wu, Squeeze-and-Excitation Networks. 2019.
 ## Download the models
 Models are ordered by test category folders
 ```
@@ -139,4 +140,4 @@ Contains miscellaneous figures such as the GCP screenshots
 └── Wael InceptionV3.ipynb
 ```
 
-[1] J. Hu, L. Shen, S. Albanie, G. Sun, and E. Wu, Squeeze-and-Excitation Networks. 2019.
+
