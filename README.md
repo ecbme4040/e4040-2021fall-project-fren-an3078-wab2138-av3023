@@ -3,7 +3,46 @@ This report summarizes the findings of the original Squeeze-and-Excitation Netwo
 
 ## Download the models
 Models are ordered by test category folders
-
+```
+full_models/
+├── ablation/
+│   ├── SE_identity.h5
+│   ├── SE_post.h5
+│   └── SE_pre.h5
+├── cifar10/
+│   ├── resnet_best.h5
+│   ├── ResNext29_best_cifar10.hdf5
+│   ├── SE_resnet_best.h5
+│   └── SE_ResNext29_best_cifar10.hdf5
+├── cifar100/
+│   ├── resnet_best.h5
+│   ├── SE_resnet_best.h5
+│   └── SE_ResNext29_best_cifar100.hdf5
+├── ratio/
+│   ├── se_resnet_ratio_1.h5
+│   ├── se_resnet_ratio_2.h5
+│   ├── se_resnet_ratio_32.h5
+│   ├── se_resnet_ratio_4.h5
+│   └── se_resnet_ratio_8.h5
+├── stage/
+│   ├── stage2.h5
+│   ├── stage3.h5
+│   └── stage4.h5
+└── tinyImageNet/
+    ├── resnet_18_aug_best.h5
+    ├── resnet_18_best.h5
+    ├── resnet_34_aug_best.h5
+    ├── resnet_34_best.h5
+    ├── resnet_50_aug_best.h5
+    ├── resnet_50_best.h5
+    ├── SE-resnet_18_aug_best.h5
+    ├── SE-resnet_18_best.h5
+    ├── SE-resnet_18best.h5
+    ├── SE-resnet_34_aug_best.h5
+    ├── SE-resnet_34_best.h5
+    ├── SE-resnet_50_aug_best.h5
+    └── SE-resnet_50_best.h5
+```
 [Lion drive link](https://drive.google.com/drive/folders/15kpxrvAyOuMmiqZfGMf_imL12vHBefLx?usp=sharing)
 (https://drive.google.com/drive/folders/15kpxrvAyOuMmiqZfGMf_imL12vHBefLx?usp=sharing)
 
