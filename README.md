@@ -89,6 +89,17 @@ Description is also in the ./utils directory
 Contains graphs of the models of the ablation test and stages test
 ### ./figures folder
 Contains miscellaneous figures such as the GCP screenshots
+
+# Download the data sets
+- **CIFAR-10-100** https://www.cs.toronto.edu/~kriz/cifar.html or use the Tensorflow included functions.
+- **Tiny ImageNet** http://cs231n.stanford.edu/tiny-imagenet-200.zip
+
+Linux commands:
+```
+wget http://cs231n.stanford.edu/tiny-imagenet-200.zip
+unzip tiny-imagenet-200.zip
+rm tiny-imagenet-200.zip
+```
 # Organization of this directory
 
 ```
