@@ -1,6 +1,7 @@
 # Squeeze-and-Excitation Networks
 This report summarizes the findings of the original Squeeze-and-Excitation Networks paper and shows a reproduction of the results with Tensorflow [1]. Convolutional neural networks are widely used for image classification in models such as Resnet models. This report investigates the effectiveness of Squeeze-and-Excitation blocks whose aim is to strengthen the inter-channel relationship by rescaling them. The original paper showed that it consistently increased the classification accuracy with various data sets such as Image Net. This paper is going to show how we were able to increase the accuracy of CNN models with the Squeeze-and-Excitation method. Because of technical barriers, slightly different models and data sets were used. We also tried to analyze the effect of different parameters of  Squeeze-and-Excitation blocks on the models, matching the paper’s findings with varying success.
 
+[1] J. Hu, L. Shen, S. Albanie, G. Sun, and E. Wu, Squeeze-and-Excitation Networks. 2019.
 ## Download the models
 Models are ordered by test category folders
 ```
@@ -10,14 +11,15 @@ full_models/
 │   ├── SE_post.h5
 │   └── SE_pre.h5
 ├── cifar10/
+│   ├── inception weights/
+│   │   ├── inception_v3_custom_cifar10.ckpt.data-00000-of-00001
+│   │   └── inception_v3_custom_cifar10.ckpt.index
 │   ├── resnet_best.h5
-│   ├── ResNext29_best_cifar10.hdf5
-│   ├── SE_resnet_best.h5
-│   └── SE_ResNext29_best_cifar10.hdf5
+│   ├── SE-inception weights/
+│   └── SE_resnet_best.h5
 ├── cifar100/
 │   ├── resnet_best.h5
-│   ├── SE_resnet_best.h5
-│   └── SE_ResNext29_best_cifar100.hdf5
+│   └── SE_resnet_best.h5
 ├── ratio/
 │   ├── se_resnet_ratio_1.h5
 │   ├── se_resnet_ratio_2.h5
@@ -53,9 +55,11 @@ full_models/
 ### 1. CIFAR10 
 - **ResNet with CIFAR10.ipynb** Shows the training process and results of ResNet et SE-Resnet models on CIFAR-10
 - **ResNeXt with CIFAR10.ipynb** Shows the training process and results of ResNeXt et SE-ResneXt models on CIFAR-10
+- **InceptionV3 with CIFAR10-100.ipynb** Shows the training process and results of InceptionV3 et SE-InceptionV3 models on CIFAR-10
 ### 2. CIFAR 100
 - **ResNet with CIFAR100.ipynb** Shows the training process and results of ResNet et SE-Resnet models on CIFAR-100
 - **ResNeXt with CIFAR100.ipynb** Shows the training process and results of ResNeXt et SE-ResneXt models on CIFAR-100
+- **InceptionV3 with CIFAR10-100.ipynb** Shows the training process and results of InceptionV3 et SE-InceptionV3 models on CIFAR-100
 ### 3. Tiny ImageNet
 - **ResNet18 with tinyImageNet.ipynb** Shows the training process and results of ResNet-18 et SE-Resnet-18 models on Tiny ImageNet with and without data augmentation
 - **ResNet34 with tinyImageNet.ipynb** Shows the training process and results of ResNet-34 et SE-Resnet-34 models on Tiny ImageNet with and without data augmentation
@@ -87,6 +91,7 @@ Contains miscellaneous figures such as the GCP screenshots
 # Organization of this directory
 
 ```
+/
 ├── analysis_ablation.ipynb
 ├── analysis_activation.ipynb
 ├── analysis_inference.ipynb
@@ -105,11 +110,8 @@ Contains miscellaneous figures such as the GCP screenshots
 │   ├── stage_2.png
 │   ├── stage_3.png
 │   └── stage_4.png
-├── inception_v3_custom_model.png
-├── inception_v3_custom_model2.png
-├── inception_v3_model.png
+├── InceptionV3 with CIFAR10-100.ipynb
 ├── Load and Test Models.ipynb
-├── model1.png
 ├── README.md
 ├── ResNet with CIFAR10.ipynb
 ├── ResNet with CIFAR100.ipynb
@@ -138,4 +140,4 @@ Contains miscellaneous figures such as the GCP screenshots
 └── Wael InceptionV3.ipynb
 ```
 
-[1] J. Hu, L. Shen, S. Albanie, G. Sun, and E. Wu, Squeeze-and-Excitation Networks. 2019.
+
