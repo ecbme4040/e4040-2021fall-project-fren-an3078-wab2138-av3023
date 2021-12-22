@@ -120,38 +120,6 @@ Contains miscellaneous figures such as the GCP screenshots
 ├── ResNeXt with CIFAR100.ipynb
 ├── Untitled.ipynb
 ├── utils/
-│   ├── .ipynb_checkpoints/
-│   │   ├── custom_resnet-checkpoint.py
-│   │   ├── custom_ResNeXt-checkpoint.py
-│   │   ├── SE_resnet-checkpoint.py
-│   │   ├── SE_ResNeXt-checkpoint.py
-│   │   ├── train_CIFAR_all-checkpoint.py
-│   │   ├── train_CIFAR_ResNet-checkpoint.py
-│   │   ├── train_CIFAR_ResNeXt-checkpoint.py
-│   │   └── untitled-checkpoint.txt
-│   ├── __pycache__/
-│   │   ├── ablation_resnet.cpython-36.pyc
-│   │   ├── ablation_resnet.cpython-37.pyc
-│   │   ├── add_SE.cpython-37.pyc
-│   │   ├── custom_resnet.cpython-36.pyc
-│   │   ├── custom_resnet.cpython-37.pyc
-│   │   ├── custom_ResNeXt.cpython-36.pyc
-│   │   ├── evaluate_model.cpython-36.pyc
-│   │   ├── evaluate_model.cpython-37.pyc
-│   │   ├── SE_inception_v3.cpython-36.pyc
-│   │   ├── SE_resnet.cpython-36.pyc
-│   │   ├── SE_resnet.cpython-37.pyc
-│   │   ├── SE_ResNeXt.cpython-36.pyc
-│   │   ├── tiny_imageNet.cpython-36.pyc
-│   │   ├── tiny_imageNet.cpython-37.pyc
-│   │   ├── train_CIFAR_all.cpython-36.pyc
-│   │   ├── train_CIFAR_ResNet.cpython-36.pyc
-│   │   ├── train_CIFAR_ResNet.cpython-37.pyc
-│   │   ├── train_CIFAR_ResNeXt.cpython-36.pyc
-│   │   ├── train_ratio.cpython-36.pyc
-│   │   ├── train_TinyImageNet_SE_ResNet.cpython-36.pyc
-│   │   ├── train_TinyImageNet_SE_ResNet.cpython-37.pyc
-│   │   └── train_TinyImageNet_SE_ResNeXt.cpython-36.pyc
 │   ├── ablation_resnet.py
 │   ├── add_SE.py
 │   ├── custom_resnet.py
