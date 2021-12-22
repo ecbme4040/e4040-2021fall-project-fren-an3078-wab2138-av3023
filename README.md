@@ -28,7 +28,7 @@ Models are ordered by test category folders
 - **analysis_ratio.ipynb** shows the effect of the ratio parameter on the accuracies
 - **analysis_stage.ipynb** shows the impact of each stage where SE blocks are added.
 
-## ./utils python files
+### ./utils python files
 
 Description is also in the ./utils directory 
 
@@ -41,9 +41,9 @@ Description is also in the ./utils directory
 - **evaluate_model.py**: evaluate model accuracy with Top-n accuray parameters
 - **train_xxx.py**: all the training functions for the CIFAR, Tiny ImageNet and ratio tests on different models.
 
-# ./img folder
+### ./img folder
 Contains graphs of the models of the ablation test and stages test
-# ./figures folder
+### ./figures folder
 Contains miscellaneous figures such as the GCP screenshots
 # Organization of this directory
 To be populated by students, as shown in previous assignments.
