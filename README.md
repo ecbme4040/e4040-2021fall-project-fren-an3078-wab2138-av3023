@@ -10,14 +10,15 @@ full_models/
 │   ├── SE_post.h5
 │   └── SE_pre.h5
 ├── cifar10/
+│   ├── inception weights/
+│   │   ├── inception_v3_custom_cifar10.ckpt.data-00000-of-00001
+│   │   └── inception_v3_custom_cifar10.ckpt.index
 │   ├── resnet_best.h5
-│   ├── ResNext29_best_cifar10.hdf5
-│   ├── SE_resnet_best.h5
-│   └── SE_ResNext29_best_cifar10.hdf5
+│   ├── SE-inception weights/
+│   └── SE_resnet_best.h5
 ├── cifar100/
 │   ├── resnet_best.h5
-│   ├── SE_resnet_best.h5
-│   └── SE_ResNext29_best_cifar100.hdf5
+│   └── SE_resnet_best.h5
 ├── ratio/
 │   ├── se_resnet_ratio_1.h5
 │   ├── se_resnet_ratio_2.h5
@@ -87,6 +88,7 @@ Contains miscellaneous figures such as the GCP screenshots
 # Organization of this directory
 
 ```
+/
 ├── analysis_ablation.ipynb
 ├── analysis_activation.ipynb
 ├── analysis_inference.ipynb
@@ -105,11 +107,8 @@ Contains miscellaneous figures such as the GCP screenshots
 │   ├── stage_2.png
 │   ├── stage_3.png
 │   └── stage_4.png
-├── inception_v3_custom_model.png
-├── inception_v3_custom_model2.png
-├── inception_v3_model.png
+├── InceptionV3 with CIFAR10-100.ipynb
 ├── Load and Test Models.ipynb
-├── model1.png
 ├── README.md
 ├── ResNet with CIFAR10.ipynb
 ├── ResNet with CIFAR100.ipynb
