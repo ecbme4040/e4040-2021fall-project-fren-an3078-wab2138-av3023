@@ -8,3 +8,4 @@
 - **ablation_resnet.py**: builds custom SE-Resnet models with different SE-block integration methods: Standard, POST, PREO and Identity
 - **evaluate_model.py**: evaluate model accuracy with Top-n accuray parameters
 - **train_xxx.py**: all the training functions for the CIFAR, Tiny ImageNet and ratio tests on different models.
+- - **tiny_imageNet.py**: gives consistent label order when switching environment or os.
