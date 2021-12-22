@@ -85,7 +85,89 @@ Contains graphs of the models of the ablation test and stages test
 ### ./figures folder
 Contains miscellaneous figures such as the GCP screenshots
 # Organization of this directory
-To be populated by students, as shown in previous assignments.
-Create a directory/file tree
+
+```
+├── analysis_ablation.ipynb
+├── analysis_activation.ipynb
+├── analysis_inference.ipynb
+├── analysis_ratio.ipynb
+├── analysis_stage.ipynb
+├── figures/
+│   ├── inceptionv3.png
+│   ├── screen_GCP_1.PNG
+│   ├── screen_GCP_2.PNG
+│   └── screen_GCP_3.PNG
+├── img/
+│   ├── ablation_identity.png
+│   ├── ablation_post.png
+│   ├── ablation_pre.png
+│   ├── ablation_standard.png
+│   ├── stage_2.png
+│   ├── stage_3.png
+│   └── stage_4.png
+├── inception_v3_custom_model.png
+├── inception_v3_custom_model2.png
+├── inception_v3_model.png
+├── Load and Test Models.ipynb
+├── model1.png
+├── README.md
+├── ResNet with CIFAR10.ipynb
+├── ResNet with CIFAR100.ipynb
+├── ResNet18 with tinyImageNet.ipynb
+├── ResNet34 with tinyImageNet.ipynb
+├── ResNet50 with tinyImageNet.ipynb
+├── ResNeXt with CIFAR10.ipynb
+├── ResNeXt with CIFAR100.ipynb
+├── Untitled.ipynb
+├── utils/
+│   ├── .ipynb_checkpoints/
+│   │   ├── custom_resnet-checkpoint.py
+│   │   ├── custom_ResNeXt-checkpoint.py
+│   │   ├── SE_resnet-checkpoint.py
+│   │   ├── SE_ResNeXt-checkpoint.py
+│   │   ├── train_CIFAR_all-checkpoint.py
+│   │   ├── train_CIFAR_ResNet-checkpoint.py
+│   │   ├── train_CIFAR_ResNeXt-checkpoint.py
+│   │   └── untitled-checkpoint.txt
+│   ├── __pycache__/
+│   │   ├── ablation_resnet.cpython-36.pyc
+│   │   ├── ablation_resnet.cpython-37.pyc
+│   │   ├── add_SE.cpython-37.pyc
+│   │   ├── custom_resnet.cpython-36.pyc
+│   │   ├── custom_resnet.cpython-37.pyc
+│   │   ├── custom_ResNeXt.cpython-36.pyc
+│   │   ├── evaluate_model.cpython-36.pyc
+│   │   ├── evaluate_model.cpython-37.pyc
+│   │   ├── SE_inception_v3.cpython-36.pyc
+│   │   ├── SE_resnet.cpython-36.pyc
+│   │   ├── SE_resnet.cpython-37.pyc
+│   │   ├── SE_ResNeXt.cpython-36.pyc
+│   │   ├── tiny_imageNet.cpython-36.pyc
+│   │   ├── tiny_imageNet.cpython-37.pyc
+│   │   ├── train_CIFAR_all.cpython-36.pyc
+│   │   ├── train_CIFAR_ResNet.cpython-36.pyc
+│   │   ├── train_CIFAR_ResNet.cpython-37.pyc
+│   │   ├── train_CIFAR_ResNeXt.cpython-36.pyc
+│   │   ├── train_ratio.cpython-36.pyc
+│   │   ├── train_TinyImageNet_SE_ResNet.cpython-36.pyc
+│   │   ├── train_TinyImageNet_SE_ResNet.cpython-37.pyc
+│   │   └── train_TinyImageNet_SE_ResNeXt.cpython-36.pyc
+│   ├── ablation_resnet.py
+│   ├── add_SE.py
+│   ├── custom_resnet.py
+│   ├── custom_ResNeXt.py
+│   ├── evaluate_model.py
+│   ├── README.md
+│   ├── SE_inception_v3.py
+│   ├── SE_resnet.py
+│   ├── SE_ResNeXt.py
+│   ├── tiny_imageNet.py
+│   ├── train_CIFAR_all.py
+│   ├── train_CIFAR_ResNet.py
+│   ├── train_CIFAR_ResNeXt.py
+│   ├── train_ratio.py
+│   └── train_TinyImageNet_SE_ResNet.py
+└── Wael InceptionV3.ipynb
+```
 
 [1] J. Hu, L. Shen, S. Albanie, G. Sun, and E. Wu, Squeeze-and-Excitation Networks. 2019.
