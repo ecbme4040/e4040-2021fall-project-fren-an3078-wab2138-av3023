@@ -74,3 +74,30 @@ def plot_model(history):
     plt.title('Training and Validation Loss')
     plt.xlabel('epoch')
     plt.show()
+
+def plot_model_inception(history):
+    acc = history.history['prediction_layer_acc']
+    val_acc = history.history['val_prediction_layer_acc']
+
+    loss = history.history['prediction_layer_loss']
+    val_loss = history.history['val_prediction_layer_loss']
+
+    plt.figure(figsize=(8, 8))
+    plt.subplot(2, 1, 1)
+    plt.plot(acc, label='Training Accuracy', color="blue")
+    plt.plot(val_acc, label='Validation Accuracy', color="r")
+    plt.legend(loc='lower right')
+    plt.ylabel('Accuracy')
+    plt.ylim([min(plt.ylim()),1])
+    plt.title('Training and Validation Accuracy')
+
+    plt.subplot(2, 1, 2)
+    plt.plot(loss, label='Training Loss', color="blue")
+    plt.plot(val_loss, label='Validation Loss', color="r")
+    plt.legend(loc='upper right')
+    plt.ylabel('Cross Entropy')
+
+    plt.title('Training and Validation Loss')
+    plt.xlabel('epoch')
+    plt.show()
+

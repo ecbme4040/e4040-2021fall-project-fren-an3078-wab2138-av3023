@@ -34,3 +34,16 @@ def score(model,X,y,top_n=[]):
     for n in top_n:
         preds=model.predict(X)
         top_n_acc(preds,y,n)
+
+
+def score_inception(model,X,y,top_n=[]):
+    model.compile(loss='categorical_crossentropy', metrics = ['acc'])
+    eval = model.evaluate(X, y, verbose=2)
+    loss = eval[2]
+    acc = eval[4]
+    print(model._name)
+    print("model accuracy: {:5.2f}%".format(100 * acc))
+    
+    for n in top_n:
+        preds=model.predict(X)[1]
+        top_n_acc(preds,y,n)

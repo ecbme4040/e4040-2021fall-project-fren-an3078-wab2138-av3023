@@ -5,7 +5,7 @@ class inception_v3_custom:
     """Our own implementation for inception_v3. The main thing to be remembered about this model is that it implements new blocks that for a same input 
     perform several convolutions in parallels, with different parameters (kernels/strides/number of channels).
     """
-    def __init__(self, aux_classifier=True, se_network=False, data_base='cifar-10', input_shape=None, n_classes=None, ratio = 16):
+    def __init__(self, aux_classifier=True, se_network=False, data_base='cifar-10', input_shape=None, n_classes=None, ratio = 16, image_shape = 200):
         """
         Parameters
         ----------
@@ -19,11 +19,14 @@ class inception_v3_custom:
             if you use any other databases than CIFAR-10/100 or Imagenet, manually enter the input shape (e.g. (299,299,3)), by default None
         n_classes : int, optional
             if you use any other databases than CIFAR-10/100 or Imagenet, manually enter the number of classes (e.g. 100), by default None
+        image_shape : int, optional
+            only serves when the image entered is too small, we resize the input images to size image_shape x image_shape, by default 200
         """
         self.aux_classifier = aux_classifier
         self.se_network = se_network
         if se_network:
             self.ratio = ratio
+        self.image_shape = tf.cast(image_shape, 'int64')
         self.data_base = data_base
 
 
@@ -203,17 +206,12 @@ class inception_v3_custom:
             output = self.SE_block(output, self.ratio)
         return output 
 
-    def forward(self, image_shape = 200):
+    def forward(self, input) :
         #Inception forward
-        #image_shape only serves when the image entered is too small, we resize the input images to shape image_shape x image_shape
 
-        self.input = tf.keras.layers.Input(shape = self.input_shape)  ####### normally  would be input = tf.keras.layers.Input(shape = (299, 299, 3))
-        input = self.input
-        n_classes = self.n_classes
-
-        if self.input_shape[0] < image_shape: # if the image is too small (smaller than 100), we'll end up totally erasing the image via the pooling/convolutional 
+        if self.input_shape[0] < self.image_shape: # if the image is too small (smaller than 100), we'll end up totally erasing the image via the pooling/convolutional 
         #layers, it is crucial to have images large enough
-            x = tf.image.resize(input, size = (image_shape, image_shape))
+            x = tf.image.resize(input, size = (self.image_shape, self.image_shape))
 
         x = self.Conv2D_Stack(x, kernel_size = (3,3), filters = 32, strides = 2, padding = 'valid', activation = 'relu')
         x = self.Conv2D_Stack(x, kernel_size = (3,3), filters = 32, strides = 1, padding = 'valid', activation = 'relu')
@@ -243,7 +241,7 @@ class inception_v3_custom:
             out1 = self.Conv2D_Stack(out1, filters = 768, kernel_size = (5,5), strides = 1, padding = 'same')
             out1 = Flatten()(out1)
             initializer = tf.keras.initializers.TruncatedNormal(0.001)
-            out1 = Dense(n_classes, activation = 'softmax', name = 'auxiliary_classifier', kernel_initializer = initializer)(out1)
+            out1 = Dense(self.n_classes, activation = 'softmax', name = 'auxiliary_classifier', kernel_initializer = initializer)(out1)
 
         ###
         x = self.reduction_block_B(x)
@@ -251,14 +249,14 @@ class inception_v3_custom:
         x = self.block_C(x)
         x = GlobalAveragePooling2D(name = 'average_pooling')(x)
         x = Dropout(rate = 0.2)(x)
-        out2 = Dense(n_classes, activation = 'softmax', name = 'prediction_layer')(x)
+        out2 = Dense(self.n_classes, activation = 'softmax', name = 'prediction_layer')(x)
         if self.aux_classifier:
-            out = [out1, out2]
+            return [out1, out2]
         else:
-            out = out2
-        return out
+            return out2
 
-    def Model(self, image_shape = 200, name = "inception_v3_custom"):
+    def Model(self, name = "inception_v3_custom"):
+        input = tf.keras.layers.Input(shape = tf.convert_to_tensor(self.input_shape))  ####### normally  would be input = tf.keras.layers.Input(shape = (299, 299, 3))
         #to use our model as a classic tf.keras model
-        out = self.forward(image_shape)
-        return tf.keras.models.Model(self.input, out, name = name)
+        out = self.forward(input)
+        return tf.keras.models.Model(input, out, name = name)
