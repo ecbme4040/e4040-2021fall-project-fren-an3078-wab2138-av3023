@@ -1,34 +1,35 @@
-# e4040-2021Fall-project
-Seed repo for projects for e4040-2021Fall-project
-  - Distributed as Github Repo and shared via Github Classroom
-  - Contains only README.md file
+# TITLE
+This report summarizes the findings of the original Squeeze-and-Excitation Networks paper and shows a reproduction of the results with Tensorflow [1]. Convolutional neural networks are widely used for image classification in models such as Resnet models. This report investigates the effectiveness of Squeeze-and-Excitation blocks whose aim is to strengthen the inter-channel relationship by rescaling them. The original paper showed that it consistently increased the classification accuracy with various data sets such as Image Net. This paper is going to show how we were able to increase the accuracy of CNN models with the Squeeze-and-Excitation method. Because of technical barriers, slightly different models and data sets were used. We also tried to analyze the effect of different parameters of  Squeeze-and-Excitation blocks on the models, matching the paper’s findings with varying success.
 
-# To be used for final project development and documentation, by a group of students
-  - Students must have at least one main Jupyter Notebook, and a number of python files in a number of directories and subdirectories such as utils or similar, as demonstrated in the assignments
-  - The content of this README.md should be changed to describe the actual project
-  - The organization of the directories has to be meaningful
-  
-# Detailed instructions how to submit this assignment/homework/project:
-1. The assignment will be distributed as a github classroom assignment - as a special repository accessed through a link
+## Download the models
+Models are ordered by test category folders
 
-2. A students copy of the assignment gets created automatically with a special name
-3. Students must rename the repo per instructions below
-
-4. The solution(s) to the assignment have to be submitted inside that repository as a set of "solved" Jupyter Notebook(s), and several modified python files which reside in directories/subdirectories
-
-5. Three files/screenshots need to be uploaded into the directory "figures" which prove that the assignment has been done in the cloud
-
-6. Code to be graded from github
-
-7. If some model is too large for github- create google (liondrive) directory, upload, and share the link with E4040TAs@columbia.edu
-
-8. Submit report as a pdf file, through courseworks upload, and also have the pdf report in the root of the github repo for the group
+[Lion drive link](https://drive.google.com/drive/folders/15kpxrvAyOuMmiqZfGMf_imL12vHBefLx?usp=sharing)
+(https://drive.google.com/drive/folders/15kpxrvAyOuMmiqZfGMf_imL12vHBefLx?usp=sharing)
 
 
-## (Re)naming of a project repository shared by multiple students (TODO students)
-INSTRUCTIONS for naming the students' solution repository for assignments with several students, such as the final project. Students must use a 4-letter groupID, the same one that was chosed in the class spreadsheet: 
-* Template: e4040-2021Fall-Project-GroupID-UNI1-UNI2-UNI3. -> Example: e4040-2021Fall-Project-MEME-zz9999-aa9999-aa0000.
+## Jupyter noteooks descriptions
+### 0. Results overview
+- **Load and Test Models.ipynb** loads all the saved models and computes the top-1,3 and 5 accuracy on the associated test data sets.
+### 1. CIFAR10 
+- **ResNet with CIFAR10.ipynb** Shows the training process and results of ResNet et SE-Resnet models on CIFAR-10
+- **ResNeXt with CIFAR10.ipynb** Shows the training process and results of ResNeXt et SE-ResneXt models on CIFAR-10
+### 2. CIFAR 100
+- **ResNet with CIFAR100.ipynb** Shows the training process and results of ResNet et SE-Resnet models on CIFAR-100
+- **ResNeXt with CIFAR100.ipynb** Shows the training process and results of ResNeXt et SE-ResneXt models on CIFAR-100
+### 3. Tiny ImageNet
+- **ResNet18 with tinyImageNet.ipynb** Shows the training process and results of ResNet-18 et SE-Resnet-18 models on Tiny ImageNet with and without data augmentation
+- **ResNet34 with tinyImageNet.ipynb** Shows the training process and results of ResNet-34 et SE-Resnet-34 models on Tiny ImageNet with and without data augmentation
+- **ResNet50 with tinyImageNet.ipynb** Shows the training process and results of ResNet-50 et SE-Resnet-50 models on Tiny ImageNet with and without data augmentation
+### 4. Other tests on SE-block parameters
+- **analysis_ablation.ipynb** shows the ablation study tests (Different SE block integrations)
+- **analysis_activation.ipynb** shows the different activation distributions accross channels for all stages and block ids
+- **analysis_inference.ipynb** shows the inference speed performance of different ResNet et SE-ResNet models with Tiny ImageNet
+- **analysis_ratio.ipynb** shows the effect of the ratio parameter on the accuracies
+- **analysis_stage.ipynb** shows the impact of each stage where SE blocks are added.
 
 # Organization of this directory
 To be populated by students, as shown in previous assignments.
 Create a directory/file tree
+
+[1] J. Hu, L. Shen, S. Albanie, G. Sun, and E. Wu, Squeeze-and-Excitation Networks. 2019.
